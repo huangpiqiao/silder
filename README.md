@@ -19,7 +19,7 @@
 |-----|-----|-------|------|-------|
 | autoPlay | 自动滑动时间,单位：毫秒 | 否 | number | 3000 |
 | width | 盒子长度,因为单位为rem，所以 值=宽度/100 | 是 | number | 无 |
-| height | 盒子高度,因为单位为rem，所以 值=高度/100 | 否 | number | 无 |
+| height | 盒子高度,因为单位为rem，所以 值=高度/100 | 是 | number | 无 |
 | designWidth | 设计稿宽度 | 否 | number | 750 |
 | maxWidth | 网站主要内容最大宽度 | 否 | number | 750 |
 | optionShow | 指示点展示控制,默认不显示 | 否 | boolean | false |
