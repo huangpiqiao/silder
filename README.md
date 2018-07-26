@@ -15,13 +15,13 @@
 
 ## 项目安装
 
-
+```
 npm install
 ```
 
 ## 本地调试
 
-
+```
 npm run serve
 ```
 
