@@ -9,7 +9,8 @@
 
 ## API
 组件api
-####BannerSlider
+
+##BannerSlider
 | 参数 | 说明 |是否必须 | 类型 | 默认值 |
 |-----|-----|-------|------|----|
 | sliderConfig | 轮播配置参数 | 是 | object | 无 |
