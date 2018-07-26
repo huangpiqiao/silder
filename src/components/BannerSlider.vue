@@ -87,10 +87,14 @@
         },
         created() {
             this.setHtmlFontSize();
+            window.addEventListener('resize', this.setHtmlFontSize, false)
             this.imageLoad();
         },
         mounted() {
 
+        },
+        beforeDestroy(){
+            window.removeEventListener('resize',this.setHtmlFontSize)
         },
         methods: {
             //设置html的根字体大小
@@ -110,9 +114,6 @@
                 }
 
                 setHtmlFontSize(designWidth, maxWidth);
-                window.addEventListener('resize', function () {
-                    setHtmlFontSize(designWidth, maxWidth);
-                }, false)
             },
             //图片的加载规则，默认先加载第一张，第二张之后必须下载完成之后再开始轮播,手动滑动之后则取消加载逻辑，按时间滑动
             imageLoad() {

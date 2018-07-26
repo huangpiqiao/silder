@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <BannerSlider :sliderConfig="sliderConfig" :silderItems="silderItemsArray" @click="bannerClick"></BannerSlider>
+        <BannerSlider :sliderConfig="sliderConfigArray" :silderItems="silderItemsArray" @click="bannerClick"></BannerSlider>
         <div :style="{marginTop: '50px'}">
-            <BannerSlider :sliderConfig="sliderConfig" :silderItems="silderItemsObject" @click="bannerClick"></BannerSlider>
+            <BannerSlider :sliderConfig="sliderConfigObject" :silderItems="silderItemsObject" @click="bannerClick"></BannerSlider>
         </div>
     </div>
 </template>
@@ -14,13 +14,27 @@
         name: 'app',
         data: () => {
             return {
-                sliderConfig: {
+                sliderConfigArray: {
                     //自动滑动时间,默认为3000毫秒,0为不自动滑动
                     autoPlay: 4000,
                     //盒子长度,必填
                     width: 6,
                     //盒子高度,必填
                     height: 5,
+                    //设计稿宽度，单位px,默认为750
+                    designWidth: 750,
+                    //网站主要内容最大宽度,默认为750
+                    maxWidth: 750,
+                    //指示点展示控制,默认不显示
+                    optionShow: true,
+                },
+                sliderConfigObject: {
+                    //自动滑动时间,默认为3000毫秒,0为不自动滑动
+                    autoPlay: 0,
+                    //盒子长度,必填
+                    width: 6,
+                    //盒子高度,必填
+                    height: 3,
                     //设计稿宽度，单位px,默认为750
                     designWidth: 750,
                     //网站主要内容最大宽度,默认为750
