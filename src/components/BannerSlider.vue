@@ -14,19 +14,19 @@
                 height:sliderConfig.height+'rem'}">
             <!--循环第一张-->
             <li class="slider-item defaultBg" :style="{width:screenWidth+'rem'}" v-if="imageShowList.length>1">
-                <a href="javascript:;" :style="{height:sliderConfig.height+'rem'}" @click.prevent="getUrl(imageShowList[silderItemsLenght-1],$event)">
+                <a :href="getUrl(imageShowList[silderItemsLenght-1])" :style="{height:sliderConfig.height+'rem'}" @click.prevent="handleClick(imageShowList[silderItemsLenght-1],$event)">
                     <img v-imgautoshow="sliderConfig" v-if="getImage(imageShowList[silderItemsLenght-1])" :src="getImage(imageShowList[silderItemsLenght-1])">
                 </a>
             </li>
             <!--轮播主体-->
             <li class="slider-item defaultBg" v-for="(item,index) in imageShowList" :key="index" :style="{width:screenWidth+'rem'}">
-                <a href="javascript:;" :style="{height:sliderConfig.height+'rem'}" @click.prevent="getUrl(item,$event)">
+                <a :href="getUrl(item)" :style="{height:sliderConfig.height+'rem'}" @click.prevent="handleClick(item,$event)">
                     <img v-imgautoshow="sliderConfig" :src="getImage(item)" v-if="getImage(item)">
                 </a>
             </li>
             <!--循环最后一张-->
             <li class="slider-item defaultBg" :style="{width:screenWidth+'rem'}" v-if="imageShowList.length>1">
-                <a href="javascript:;" :style="{height:sliderConfig.height+'rem'}" @click.prevent.stop="getUrl(imageShowList[0],$event)">
+                <a :href="getUrl(imageShowList[0])" :style="{height:sliderConfig.height+'rem'}" @click.prevent.stop="handleClick(imageShowList[0],$event)">
                     <img v-imgautoshow="sliderConfig" :src="getImage(imageShowList[0])" v-if="getImage(imageShowList[0])"></a>
             </li>
         </ul>
@@ -275,7 +275,7 @@
                     }
                 }
             },
-            //自动播放
+            //自动滑动
             animationInterval: function () {
                 let that = this;
                 if (this.autoPlay) {
@@ -324,8 +324,11 @@
                     clearTimeout(this.delayTimeout);
                 }
             },
-            //获取跳转的url
-            getUrl: function (source,e) {
+            //点击事件
+            handleClick: function (source,e) {
+                if(this.sliderConfig.autoLocation && typeof source == "object"){
+                    window.location.href = source.url;
+                }
                 this.$emit('click',{
                     image: source,
                     event: e,
@@ -340,6 +343,13 @@
                     return source;
                 }
             },
+            //获取跳转到额url
+            getUrl: function (source) {
+                if (typeof source == "object") {
+                    return source.url;
+                }
+                return 'javascript:;';
+            }
         },
         computed: {
             //盒子长度
@@ -365,6 +375,7 @@
             silderItemsLenght: function () {
                 return this.imageShowList.length;
             },
+            //初始位置偏左
             left: function () {
                 return this.silderItemsLenght > 1 ? -this.screenWidth : 0;
             },
@@ -416,15 +427,6 @@
         overflow: hidden;
         display: block;
         position: relative;
-    }
-    .slider-item a img{
-        /*height: auto;*/
-        /*width: auto;*/
-        /*!*max-width: 7.5rem;*!*/
-        /*position: absolute;*/
-        /*left: 50%;*/
-        /*top: 50%;*/
-        /*transform: translate3d(-50%, -50%, 0);*/
     }
     .slider .slider-content a {
         display: block;

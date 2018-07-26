@@ -1,6 +1,9 @@
 <template>
     <div id="app">
-        <BannerSlider :sliderConfig="sliderConfig" :silderItems="silderItems" @click="bannerClick"></BannerSlider>
+        <BannerSlider :sliderConfig="sliderConfig" :silderItems="silderItemsArray" @click="bannerClick"></BannerSlider>
+        <div :style="{marginTop: '50px'}">
+            <BannerSlider :sliderConfig="sliderConfig" :silderItems="silderItemsObject" @click="bannerClick"></BannerSlider>
+        </div>
     </div>
 </template>
 
@@ -24,12 +27,30 @@
                     maxWidth: 750,
                     //指示点展示控制,默认不显示
                     optionShow: true,
+                    //点击是否自动跳转链接
+                    autoLocation: true,
                 },
-                silderItems: [
+                silderItemsArray: [
                     '//m.360buyimg.com/babel/jfs/t19918/343/2670757010/96927/7c6c3bd3/5b4da486N598b1a13.jpg',
-                    '//img11.360buyimg.com/mobilecms/s350x128_jfs/t9337/240/1353877974/54320/5aa188cf/59bfd0b1Nc651cf14.jpg!q90!cc_350x128.webp',
+                    '//img1.360buyimg.com/pop/jfs/t18049/280/2263512182/124650/fa929ef0/5aedc456Nacfeaf43.jpg',
                     '//m.360buyimg.com/babel/jfs/t22402/289/2300041360/56400/ad72889a/5b4ee30cNc04310dd.jpg',
                     '//m.360buyimg.com/babel/jfs/t20515/63/2313147701/102144/bff20e38/5b513a1bN8f3f736e.jpg',
+                ],
+                silderItemsObject: [
+                    {
+                        imgUrl: '//m.360buyimg.com/babel/jfs/t19918/343/2670757010/96927/7c6c3bd3/5b4da486N598b1a13.jpg',
+                        url: 'http://baidu.com'
+                    },
+                    {
+                        imgUrl: '//img1.360buyimg.com/pop/jfs/t18049/280/2263512182/124650/fa929ef0/5aedc456Nacfeaf43.jpg',
+                    },
+                    {
+                        imgUrl: '//m.360buyimg.com/babel/jfs/t22402/289/2300041360/56400/ad72889a/5b4ee30cNc04310dd.jpg',
+                    },
+                    {
+                        imgUrl: '//m.360buyimg.com/babel/jfs/t20515/63/2313147701/102144/bff20e38/5b513a1bN8f3f736e.jpg',
+                        url: 'http://baidu.com'
+                    }
                 ]
             }
         },
