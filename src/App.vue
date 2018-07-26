@@ -34,8 +34,9 @@
             }
         },
         methods: {
+            //banner点击
             bannerClick(params){
-                console.log(params)
+                // console.log(params)
             }
         },
         components: {
