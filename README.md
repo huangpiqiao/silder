@@ -8,9 +8,12 @@
 
 
 ## 参数
-
 <!--参数开始-->
-
+| 参数 | 是否必须 | 类型 | 默认值 |
+|-----|--------|-------|------|
+| sliderConfig | 是 | object | 无 |
+| silderItems | 是 | object or array| 无 |
+| bannerClick | 否 | function(image)| 无 |
 <!--参数结束-->
 
 ## 项目安装
