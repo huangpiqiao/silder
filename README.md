@@ -24,8 +24,8 @@
 | maxWidth | 网站主要内容最大宽度 | 否 | number | 750 |
 | optionShow | 指示点展示控制,默认不显示 | 否 | boolean | false |
 | autoLocation | 点击是否自动跳转链接 | 否 | boolean | false |
-### BannerSlider.silderItems```<Array>```
-数组成员为字符串，值为图片链接
+### BannerSlider.silderItems```Array<String>```
+数组成员为图片链接
 ### BannerSlider.silderItems```Array<Object>```
 | 参数 | 说明 |是否必须 | 类型 | 默认值 |
 |-----|-----|-------|------|-------|
